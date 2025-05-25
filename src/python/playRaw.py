@@ -34,13 +34,3 @@ def playRaw(rawFile):
         stream.close()
         p.terminate()
         
-
-# 臨時テスト
-import wave
-
-def saveAsWav(rawBytes, filename="test.wav"):
-    with wave.open(filename, 'wb') as wf:
-        wf.setnchannels(1)
-        wf.setsampwidth(4)  # Float32 = 4 bytes
-        wf.setframerate(44100)
-        wf.writeframes(rawBytes)
