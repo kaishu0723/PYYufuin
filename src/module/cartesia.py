@@ -30,3 +30,15 @@ def cartesia(text,lang):
 
     response=requests.post(apiURL,json=payload,headers=headers)
     return response
+
+# event :chunk
+# data:{"...":"...","data":"..."}
+
+# event :chunk
+# data:{}
+
+# --[省略]--
+
+
+# event :done
+# data:{}

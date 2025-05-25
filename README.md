@@ -1,6 +1,2 @@
-# Cartesia.py
-- cartesiaはバイナリデータを返す。
-# playRaw.py
-- playRawBytesはバイナリデータをtemp.rawファイルに変換
-- playRawはrawファイルを再生->うまくいってない
-- saveAsWavはバイナリデータをWAVファイルに変換->ノイズが激しいが、申し訳程度にHello Cartesiaと言っているように聞こえる、多分言っていると思う
+- SSEは小切れしているため、どもって聞こえる（コードの書き方が悪い可能性もある）。エンドポイントがrawデータしか返せない。
+- Bytesは問題なく再生できる。wavも使える。
