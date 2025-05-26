@@ -22,4 +22,5 @@ def Gemini(prompt):
     data=response["candidates"][0]["content"]["parts"][0]["text"]
     return data
 
-# print(Gemini("Hello Gemini!This is API test."))
+if __name__=="__main__":
+  print(Gemini("Hello Gemini!This is API test."))

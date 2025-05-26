@@ -1,8 +1,8 @@
 from module.cartesia import cartesia
-from module.playRaw import playRaw
+from module.playRaw import playSse
 import json
 
-bytesData=cartesia("Hello Cartesia","en")
+bytesData=cartesia("Hello Cartesia","en","sse")
 
 # SSE
 chunk_list=[]
@@ -14,4 +14,4 @@ for text in chunk_list:
     if data:
         jsondata=json.loads(data)
         if "data" in jsondata:
-            playRaw(jsondata["data"].encode())
+            playSse(jsondata["data"].encode())

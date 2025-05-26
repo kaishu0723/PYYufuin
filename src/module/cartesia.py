@@ -4,9 +4,9 @@ import os
 
 load_dotenv()
 apiKey=os.getenv("CARTESIA_API_KEY")
-apiURL=os.getenv("CARTESIA_API_ENDPOINT_URL")
 
-def cartesia(text,lang):
+def cartesia(text,lang,method):
+    apiURL=os.getenv("CARTESIA_API_ENDPOINT_URL")+method
     payload={
         "model_id":"sonic-2",
         "transcript":f"{text}",
@@ -30,6 +30,9 @@ def cartesia(text,lang):
 
     response=requests.post(apiURL,json=payload,headers=headers)
     return response
+
+if __name__=="__main__":
+    print(cartesia("Hello Cartesia!","en"))
 
 # event :chunk
 # data:{"...":"...","data":"..."}
