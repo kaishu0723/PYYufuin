@@ -1,4 +1,4 @@
-import socket,json
+import socket,json,base64
 
 HOST='127.0.0.1'
 PORT=30010
@@ -12,6 +12,7 @@ conn,addr=server.accept()
 print("Connected by",addr)
 
 with open('./src/module/maou_se_system49.wav','rb') as f:
+    # audioData=base64.b64encode(f.read()).decode('utf-8')
     audioData=f.read()
 
 # sendJsonData={"message":"日本語対応可","audio":audioData}
