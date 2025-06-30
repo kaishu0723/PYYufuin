@@ -1,4 +1,5 @@
 import socket,json,base64
+from cartesia import cartesia
 
 HOST='127.0.0.1'
 PORT=30010
@@ -11,20 +12,21 @@ print("WaitStartGame")
 conn,addr=server.accept()
 print("Connected by",addr)
 
-with open('./src/module/maou_se_system49.wav','rb') as f:
-    # audioData=base64.b64encode(f.read()).decode('utf-8')
-    audioData=f.read()
+# with open('./src/module/maou_se_system49.wav','rb') as f:
+#     audioData=base64.b64encode(f.read()).decode('utf-8')
+    # audioData=f.read()
+audioData=base64.b64encode(cartesia("Hello World","en").content).decode('utf-8')
 
-# sendJsonData={"message":"日本語対応可","audio":audioData}
-# sendStringData=json.dumps(sendJsonData)
+sendJsonData={"message":"日本語対応可","audio":audioData}
+sendStringData=json.dumps(sendJsonData)
 
 while True:
     data=conn.recv(1024)
     if not data:
         break
-    jsonData=json.loads(data.decode())
-    print("Received:",jsonData["message"])
-    # conn.sendall(sendStringData.encode())
-    conn.sendall(audioData)
+    receiveJsonData=json.loads(data.decode())
+    print("Received:",receiveJsonData["message"])
+    conn.sendall(sendStringData.encode())
+    # conn.sendall(audioData)
     
 conn.close()

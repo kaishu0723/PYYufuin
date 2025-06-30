@@ -5,8 +5,8 @@ import os
 load_dotenv()
 apiKey=os.getenv("CARTESIA_API_KEY")
 
-def cartesia(text,lang,method):
-    apiURL=os.getenv("CARTESIA_API_ENDPOINT_URL")+method
+def cartesia(text,lang):
+    apiURL=os.getenv("CARTESIA_API_ENDPOINT_URL")
     payload={
         "model_id":"sonic-2",
         "transcript":f"{text}",
@@ -15,7 +15,7 @@ def cartesia(text,lang,method):
             "id":"bf0a246a-8642-498a-9950-80c35e9276b5"
         },
         "output_format":{
-            "container":"raw",
+            "container":"wav",
             "encoding":"pcm_f32le",
             "sample_rate":44100
         },
