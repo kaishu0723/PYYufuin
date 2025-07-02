@@ -12,10 +12,12 @@ print("WaitStartGame")
 conn,addr=server.accept()
 print("Connected by",addr)
 
-# with open('./src/module/maou_se_system49.wav','rb') as f:
-#     audioData=base64.b64encode(f.read()).decode('utf-8')
-    # audioData=f.read()
-audioData=base64.b64encode(cartesia("Hello World","en").content).decode('utf-8')
+with open('./output.wav','wb') as f:
+    f.write(cartesia("Hello World","en").content)
+
+with open('./output.wav','rb') as f:
+    audioData=base64.b64encode(f.read()).decode('utf-8')
+# audioData=base64.b64encode(cartesia("Hello World","en").content).decode('utf-8')
 
 sendJsonData={"message":"日本語対応可","audio":audioData}
 sendStringData=json.dumps(sendJsonData)

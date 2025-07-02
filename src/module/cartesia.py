@@ -16,7 +16,7 @@ def cartesia(text,lang):
         },
         "output_format":{
             "container":"wav",
-            "encoding":"pcm_f32le",
+            "encoding":"pcm_s16le",
             "sample_rate":44100
         },
         "language":f"{lang}"
