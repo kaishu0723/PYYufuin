@@ -36,13 +36,13 @@ def search_documents(query,vectorstore,bm25_index,chunk_texts,n=3):
 
     return unique_results[:n]
 
-def retriever(query) -> str:
-    response=""
+def retriever(query) -> list[str]:
+    response=[]
     vectorstore,bm25_index,chunk_texts=load_indexes()
     user_query=query
     retriever_docs=search_documents(user_query,vectorstore,bm25_index,chunk_texts)
     for i,doc in enumerate(retriever_docs,1):
-        response=response+"\n"+str(i)+"\n"+doc+"\n"+"-"*20
+        response.append(doc)
     
     return response
         
