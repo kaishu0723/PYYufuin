@@ -5,7 +5,7 @@ def generate(query:str,context_docs:list[str]) -> str:
     context="\n---\n".join(context_docs)
 
     prompt_template=f"""
-    以下の情報のみに基づいて、質問に大分弁で回答してください。情報に答えがない場合は、「わかりません」と答えてください。
+    以下の情報のみに基づいて、質問に回答してください。情報に答えがない場合は、「わかりません」と答えてください。
     
     「情報」
     {context}
